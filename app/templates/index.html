@@ -1,8 +1,25 @@
 
 {% extends "bootstrap/base.html" %}
 
-{% block content %}
-<div class="jumbotron">
-   <h1 class="display"> All set now!</h1>
+{% block navbar %}
+<div class="navbar navbar-dark bg-dark">
+   <h1 class="navbar-brand"> BlogPosts</h1>
+   <a href="{{ url_for('main.post')}}" class="nav-item">Post</a>
 </div>
+{% endblock %}
+
+{% block content %}
+   {% if posts %}
+      {% for post in posts%}
+      <div class="containter">
+         <h2>{{post.title}}</h2>
+         <h4>{{post.body}}</h4>
+         <h4>at {{post.pubdate}} by {{post.user}}</h4>
+      </div>
+      {%endfor%}
+   {% else %}
+   <div class="containter">
+      <h3>No posts</h3>
+   </div>
+   {% endif %}
 {% endblock %}
