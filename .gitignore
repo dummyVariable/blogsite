@@ -3,3 +3,7 @@ venv/
 .vscode/
 
 __pycache__/
+
+migrations/
+
+data.db
