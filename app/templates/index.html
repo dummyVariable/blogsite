@@ -1,25 +1,20 @@
-
-{% extends "bootstrap/base.html" %}
-
-{% block navbar %}
-<div class="navbar navbar-dark bg-dark">
-   <h1 class="navbar-brand"> BlogPosts</h1>
-   <a href="{{ url_for('main.post')}}" class="nav-item">Post</a>
-</div>
-{% endblock %}
+{% extends 'base.html' %}
 
 {% block content %}
+   <div class="container home">
    {% if posts %}
       {% for post in posts%}
-      <div class="containter">
-         <h2>{{post.title}}</h2>
-         <h4>{{post.body}}</h4>
-         <h4>at {{post.pubdate}} by {{post.user}}</h4>
+      <div class="containter post rounded-lg border-bottom">
+         <h2 class="post-title">{{post.title}}</h2>
+         <h4 class="post-body">{{post.body}}</h4>
+         <h4 class="post-details">at {{post.pubdate.replace(microsecond=0)}} by {{post.user|capitalize}}</h4>
       </div>
       {%endfor%}
    {% else %}
-   <div class="containter">
+   <div class="container">
       <h3>No posts</h3>
    </div>
-   {% endif %}
+   {% endif %} 
+   </div>
+
 {% endblock %}

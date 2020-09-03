@@ -37,4 +37,4 @@ class User(db.Model):
         return check_password_hash(self.password_hash, password)
     
     def __repr__(self):
-        return f'user - {self.username}'
+        return f'{self.username}'
