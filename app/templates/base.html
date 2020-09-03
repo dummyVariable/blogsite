@@ -26,9 +26,15 @@
       </li>
      </ul>
    </div>
-     <ul class="nav navbar-nav navbar-right">
-      <li class="nav-item"><a class="nav-link" href="/">Login</a></li>
-      <li class="nav-item"><a class="nav-link my-2 my-sm-0" href="/">Register</a></li>
-     </ul>
+    {% if current_user.is_authenticated %}
+    <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.logout')}}">Logout</a></li>
+    </ul>
+     {% else %}
+      <ul class="nav navbar-nav navbar-right">
+      <li class="nav-item"><a class="nav-link" href="{{ url_for('auth.login')}}">Login</a></li>
+      <li class="nav-item"><a class="nav-link my-2 my-sm-0" href="{{ url_for('auth.register')}}">Register</a></li>
+      </ul>
+     {% endif %}
  </nav>
 {% endblock %}

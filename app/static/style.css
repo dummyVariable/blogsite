@@ -9,7 +9,7 @@
     width: auto;
 }
 
-.post-form{
+.post-form, .login-form, .register-form{
     padding: 20px;
     margin:30px auto; 
     width: 40%;
