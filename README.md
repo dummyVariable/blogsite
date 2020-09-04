@@ -1,2 +1,2 @@
-# flask-project-structure
-Base strucutre for flask apps
+# blog-app  
+Dummy blog app using Flask
