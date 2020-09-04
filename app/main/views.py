@@ -10,7 +10,7 @@ from app.models import Post, User, db
 @main.route('/')
 @login_required
 def index():
-    posts = Post.query.all()
+    posts = Post.query.all()[::-1]
     return render_template('index.html', posts=posts)
 
 @main.route('/post', methods=['GET', 'POST'])
@@ -30,5 +30,5 @@ def post():
 @main.route('/about')
 @login_required
 def about():
-    posts = current_user.posts
+    posts = current_user.posts[::-1]
     return render_template('about.html', posts=posts)
